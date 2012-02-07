@@ -1,0 +1,141 @@
+\documentclass[a4paper,10pt,landscape]{article}
+\usepackage{multicol}
+\usepackage{calc}
+\usepackage{ifthen}
+\usepackage[landscape]{geometry}
+\usepackage{amsmath,amsthm,amsfonts,amssymb}
+\usepackage{color,graphicx,overpic}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage{wrapfig}
+\usepackage{array}
+\usepackage{pifont}
+
+%define colors
+\definecolor{light-grey}{rgb}{0.5,0.5,0.5}
+
+
+
+
+\pdfinfo{
+  /Title (example.pdf)
+  /Creator (TeX)
+  /Producer (pdfTeX 1.40.0)
+  /Author (Seamus)
+  /Subject (Example)
+  /Keywords (pdflatex, latex,pdftex,tex)}
+
+% This sets page margins to .5 inch if using letter paper, and to 1cm
+% if using A4 paper. (This probably isn't strictly necessary.)
+% If using another size paper, use default 1cm margins.
+\ifthenelse{\lengthtest { \paperwidth = 11in}}
+    { \geometry{top=.5in,left=.5in,right=.5in,bottom=.5in} }
+    {\ifthenelse{ \lengthtest{ \paperwidth = 297mm}}
+        {\geometry{top=1cm,left=1cm,right=1cm,bottom=1cm} }
+        {\geometry{top=1cm,left=1cm,right=1cm,bottom=1cm} }
+    }
+
+% Turn off header and footer
+\pagestyle{empty}
+
+% Redefine section commands to use less space
+\makeatletter
+\renewcommand{\section}{\@startsection{section}{1}{0mm}%
+                                {-1ex plus -.5ex minus -.2ex}%
+                                {0.5ex plus .2ex}%x
+                                {\normalfont\large\bfseries}}
+\renewcommand{\subsection}{\@startsection{subsection}{2}{0mm}%
+                                {-1explus -.5ex minus -.2ex}%
+                                {0.5ex plus .2ex}%
+                                {\normalfont\normalsize\bfseries}}
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{0mm}%
+                                {-1ex plus -.5ex minus -.2ex}%
+                                {1ex plus .2ex}%
+                                {\normalfont\small\bfseries}}
+\makeatother
+
+% Define BibTeX command
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+% Don't print section numbers
+\setcounter{secnumdepth}{0}
+
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt plus 0.5ex}
+
+%My Environments
+\newtheorem{example}[section]{Example}
+% -----------------------------------------------------------------------
+
+\begin{document}
+
+\begin{center}
+     \Large{BASH / VI Cheatsheet}  \footnotesize{V1.0} \\
+\rule{\linewidth}{0.25pt}\\
+\end{center}
+
+
+\raggedright
+\begin{multicols}{2}
+\footnotesize
+
+
+% multicol parameters
+% These lengths are set only within the two main columns
+%\setlength{\columnseprule}{0.25pt}
+\setlength{\premulticols}{1pt}
+\setlength{\postmulticols}{1pt}
+\setlength{\multicolsep}{1pt}
+\setlength{\columnsep}{2pt}
+
+\section{\underline{VI / VIM}}
+\vspace{3mm}
+Der VI hat verschiedene Modi. Um einen Modus zu verlassen wird Esc benutzt. Um zb. etwas einzugeben muss man in den Insert Mode wechseln.\\
+\vspace{2mm}
+ZAL -\textgreater Zwischenablage\\
+curs. -\textgreater cursor\\
+pos. -\textgreater position\\
+\vspace{2mm}
+\begin{tabular}{l p{8cm}}
+{\bf i} & insert text an curs. pos.\\\hline
+{\bf a} & append text nach curs. pos.\\\hline
+{\bf Esc} & Modus verlassen (zb. insert)\\\hline
+{\bf dd} &  Zeile löschen und in ZAL\\\hline
+{\bf yy} &  Zeile in ZAL\\\hline
+{\bf m x} &  Marker x (beliebiger Buchstabe) an momentaner pos.\\\hline
+{\bf ' x} &  Marker x (beliebiger Buchstabe) benutzen\\\hline
+{\bf :s/abc/def/} & abc mit def beim ersten Vorkommen in der momentanen Zeile ersetzen\\\hline
+{\bf :\%s/abc/def/} & abc mit def beim ersten Vorkommen auf einer Zeile im ganzen file ersetzen\\\hline
+{\bf :\%s/abc/def/g} & abc mit def im ganzen File ersetzen\\\hline
+{\bf cw} & 'change word' löscht das ganze folgende Wort und geht in den Insert Mode\\\hline
+{\bf :syntax on} & Aktiviert Syntaxhighlighting\\\hline
+{\bf :set number} & Zeigt Linenumbers\\\hline
+{\bf :set nonumber} & Versteckt Linenumbers\\\hline
+{\bf :w} & Speichern\\\hline
+{\bf :wq} & Speichern und schliessen\\\hline
+{\bf :q!} & Schliessen OHNE speichern\\\hline
+{\bf u} & Rückgängig machen\\\hline
+{\bf shift u oder :redo} & Redo\\\hline
+{\bf blah} & blah\\
+\end{tabular}
+
+
+\section{\underline{BASH}}
+\vspace{3mm}
+\begin{tabular}{>{\raggedright}p{5cm}>{\raggedright}p{8cm}}
+{\bf CTRL + R} & Suche in abgesetzten Befehlen/History (nochmal CTRL + R für den nächsten Treffer)\tabularnewline\hline
+{\bf cd} & Verzeichnis wechseln (.. eine Ebene tiefer)\tabularnewline\hline
+{\bf command1 \&\& command2} & command1 wird ausgeführt, command2 nur wenn command1 ok war\tabularnewline\hline
+{\bf cp 1 file2} & copy (-r für Rekursives kopieren)\tabularnewline\hline
+{\bf mv} & move (auch zum umbenennen)\tabularnewline\hline
+{\bf grep -rin 'abc' ./} & Suche nach dem String abc in allen Files des momentanen Verzeichnisses (./) rekursiv (-r), case insensitiv (-i), mit Anzeige der Zeilennummer und dem File in dem der String gefunden wurde\tabularnewline\hline
+{\bf find -name '*.php'} & Suche nach Files welche mit .php enden, rekursiv ab dem momentanen Verzeichnis\tabularnewline\hline
+{\bf man command} & Hilfe/Informationen zum Befehl command. / zum durchsuchen, q zum verlassen\tabularnewline\hline
+{\bf scp file.txt benutzer@server:\Pisymbol{psy}{191}\newline/pfad/zum/speichern/} & Kopiert das File file.txt auf den remote-Server in den angegebenen Pfad (geht auch in die andere Richtung)\tabularnewline
+\end{tabular}
+
+
+\end{multicols}
+\end{document}
