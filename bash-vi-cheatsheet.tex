@@ -72,7 +72,7 @@
 \begin{document}
 
 \begin{center}
-     \Large{BASH / VI Cheatsheet}  \footnotesize{V1.0} \\
+     \Large{BASH / VI Cheatsheet}  \footnotesize{V1.1} \\
 \rule{\linewidth}{0.25pt}\\
 \end{center}
 
@@ -118,7 +118,7 @@ pos. -\textgreater position\\
 {\bf :q!} & Schliessen OHNE speichern\\\hline
 {\bf u} & Rückgängig machen\\\hline
 {\bf shift u oder :redo} & Redo\\\hline
-{\bf blah} & blah\\
+%{\bf blah} & blah\\
 \end{tabular}
 
 
@@ -128,12 +128,16 @@ pos. -\textgreater position\\
 {\bf CTRL + R} & Suche in abgesetzten Befehlen/History (nochmal CTRL + R für den nächsten Treffer)\tabularnewline\hline
 {\bf cd} & Verzeichnis wechseln (.. eine Ebene tiefer)\tabularnewline\hline
 {\bf command1 \&\& command2} & command1 wird ausgeführt, command2 nur wenn command1 ok war\tabularnewline\hline
-{\bf cp 1 file2} & copy (-r für Rekursives kopieren)\tabularnewline\hline
+{\bf cp file1 file2} & copy (-r für Rekursives kopieren)\tabularnewline\hline
 {\bf mv} & move (auch zum umbenennen)\tabularnewline\hline
 {\bf grep -rin 'abc' ./} & Suche nach dem String abc in allen Files des momentanen Verzeichnisses (./) rekursiv (-r), case insensitiv (-i), mit Anzeige der Zeilennummer und dem File in dem der String gefunden wurde\tabularnewline\hline
 {\bf find -name '*.php'} & Suche nach Files welche mit .php enden, rekursiv ab dem momentanen Verzeichnis\tabularnewline\hline
 {\bf man command} & Hilfe/Informationen zum Befehl command. / zum durchsuchen, q zum verlassen\tabularnewline\hline
-{\bf scp file.txt benutzer@server:\Pisymbol{psy}{191}\newline/pfad/zum/speichern/} & Kopiert das File file.txt auf den remote-Server in den angegebenen Pfad (geht auch in die andere Richtung)\tabularnewline
+{\bf scp file.txt benutzer@server:\Pisymbol{psy}{191}\newline/pfad/zum/speichern/} & Kopiert das File file.txt auf den remote-Server in den angegebenen Pfad (geht auch in die andere Richtung)\tabularnewline\hline
+{\bf ctrl-z} & Den momentanen Prozess/Job in den Hintergrund schieben (mit mehreren möglich).\tabularnewline\hline
+{\bf jobs} & Laufende Jobs (zb. jene im Hintergrund) anzeigen.\tabularnewline\hline
+{\bf fg x} & Holt den Job mit der Nummer x in den Vordergrund (falls nur einer im Hintergrund ist, kann jener auch einfach mit "fg" geholt werden).\tabularnewline\hline
+%{\bf blah} & blah\tabularnewline\hline
 \end{tabular}
 
 

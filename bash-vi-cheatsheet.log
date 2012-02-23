@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.1.30)  7 FEB 2012 12:49
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.2.14)  23 FEB 2012 12:43
 entering extended mode
  %&-line parsing enabled.
 **bash-vi-cheatsheet.tex
@@ -747,7 +747,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 125.
 
 
-Overfull \hbox (4.81514pt too wide) in paragraph at lines 127--138
+Overfull \hbox (4.81514pt too wide) in paragraph at lines 127--142
 []  
  []
 
@@ -758,18 +758,18 @@ Overfull \hbox (4.81514pt too wide) in paragraph at lines 127--138
 Here is how much of TeX's memory you used:
  6144 strings out of 495061
  84647 string characters out of 1182621
- 182371 words of memory out of 3000000
+ 184371 words of memory out of 3000000
  9187 multiletter control sequences out of 15000+50000
  10864 words of font info for 41 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
- 38i,9n,39p,290b,674s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 38i,9n,39p,290b,654s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texmf-texlive/fonts/type1/public/amsfon
 ts/cm/cmbx12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx8
 .pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/s
 hare/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-t
 exlive/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-texlive/fonts/
 type1/urw/symbol/usyr.pfb>
-Output written on bash-vi-cheatsheet.pdf (1 page, 69146 bytes).
+Output written on bash-vi-cheatsheet.pdf (1 page, 69719 bytes).
 PDF statistics:
  44 PDF objects out of 1000 (max. 8388607)
  4 named destinations out of 1000 (max. 500000)
