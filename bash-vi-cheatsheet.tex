@@ -1,15 +1,29 @@
+%HEADER
 \documentclass[a4paper,10pt,landscape]{article}
-\usepackage{multicol}
-\usepackage{calc}
-\usepackage{ifthen}
-\usepackage[landscape]{geometry}
-\usepackage{amsmath,amsthm,amsfonts,amssymb}
-\usepackage{color,graphicx,overpic}
-\usepackage{hyperref}
+
+%define packages
+\usepackage{pslatex}
+\usepackage[ngerman]{babel}
 \usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[dvips,a4paper,top=1cm, bottom=1cm, left=1cm, right=1cm]{geometry}
+\usepackage{fancyhdr}
+
+\usepackage{color}
+\usepackage{colortbl}
+\usepackage{graphicx}
+\usepackage{tabularx}
+
 \usepackage{wrapfig}
-\usepackage{array}
+
+\usepackage{lastpage}
+\usepackage{hyperref}
+
+\usepackage{moresize}
 \usepackage{pifont}
+\usepackage{multicol}
+
+
 
 %define colors
 \definecolor{light-grey}{rgb}{0.5,0.5,0.5}
@@ -25,38 +39,9 @@
   /Subject (Example)
   /Keywords (pdflatex, latex,pdftex,tex)}
 
-% This sets page margins to .5 inch if using letter paper, and to 1cm
-% if using A4 paper. (This probably isn't strictly necessary.)
-% If using another size paper, use default 1cm margins.
-\ifthenelse{\lengthtest { \paperwidth = 11in}}
-    { \geometry{top=.5in,left=.5in,right=.5in,bottom=.5in} }
-    {\ifthenelse{ \lengthtest{ \paperwidth = 297mm}}
-        {\geometry{top=1cm,left=1cm,right=1cm,bottom=1cm} }
-        {\geometry{top=1cm,left=1cm,right=1cm,bottom=1cm} }
-    }
 
 % Turn off header and footer
 \pagestyle{empty}
-
-% Redefine section commands to use less space
-\makeatletter
-\renewcommand{\section}{\@startsection{section}{1}{0mm}%
-                                {-1ex plus -.5ex minus -.2ex}%
-                                {0.5ex plus .2ex}%x
-                                {\normalfont\large\bfseries}}
-\renewcommand{\subsection}{\@startsection{subsection}{2}{0mm}%
-                                {-1explus -.5ex minus -.2ex}%
-                                {0.5ex plus .2ex}%
-                                {\normalfont\normalsize\bfseries}}
-\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{0mm}%
-                                {-1ex plus -.5ex minus -.2ex}%
-                                {1ex plus .2ex}%
-                                {\normalfont\small\bfseries}}
-\makeatother
-
-% Define BibTeX command
-\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
-    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 
 % Don't print section numbers
 \setcounter{secnumdepth}{0}
@@ -72,7 +57,7 @@
 \begin{document}
 
 \begin{center}
-     \Large{BASH / VI Cheatsheet}  \footnotesize{V1.1} \\
+     {\bf \Large{BASH / VI Cheatsheet}}  \footnotesize{V1.2} \\
 \rule{\linewidth}{0.25pt}\\
 \end{center}
 
@@ -98,27 +83,30 @@ ZAL -\textgreater Zwischenablage\\
 curs. -\textgreater cursor\\
 pos. -\textgreater position\\
 \vspace{2mm}
-\begin{tabular}{l p{8cm}}
-{\bf i} & insert text an curs. pos.\\\hline
-{\bf a} & append text nach curs. pos.\\\hline
-{\bf Esc} & Modus verlassen (zb. insert)\\\hline
-{\bf dd} &  Zeile löschen und in ZAL\\\hline
-{\bf yy} &  Zeile in ZAL\\\hline
-{\bf m x} &  Marker x (beliebiger Buchstabe) an momentaner pos.\\\hline
-{\bf ' x} &  Marker x (beliebiger Buchstabe) benutzen\\\hline
-{\bf :s/abc/def/} & abc mit def beim ersten Vorkommen in der momentanen Zeile ersetzen\\\hline
-{\bf :\%s/abc/def/} & abc mit def beim ersten Vorkommen auf einer Zeile im ganzen file ersetzen\\\hline
-{\bf :\%s/abc/def/g} & abc mit def im ganzen File ersetzen\\\hline
-{\bf cw} & 'change word' löscht das ganze folgende Wort und geht in den Insert Mode\\\hline
-{\bf :syntax on} & Aktiviert Syntaxhighlighting\\\hline
-{\bf :set number} & Zeigt Linenumbers\\\hline
-{\bf :set nonumber} & Versteckt Linenumbers\\\hline
-{\bf :w} & Speichern\\\hline
-{\bf :wq} & Speichern und schliessen\\\hline
-{\bf :q!} & Schliessen OHNE speichern\\\hline
-{\bf u} & Rückgängig machen\\\hline
-{\bf shift u oder :redo} & Redo\\\hline
-%{\bf blah} & blah\\
+\begin{tabular}{>{\raggedright}p{5cm}>{\raggedright}p{8cm}}
+{\bf i} & insert text an curs. pos.\tabularnewline\hline
+{\bf a} & append text nach curs. pos.\tabularnewline\hline
+{\bf Esc} & Modus verlassen (zb. insert)\tabularnewline\hline
+{\bf dd} &  Zeile löschen und in ZAL\tabularnewline\hline
+{\bf yy} &  Zeile in ZAL\tabularnewline\hline
+{\bf m x} &  Marker x (beliebiger Buchstabe) an momentaner pos.\tabularnewline\hline
+{\bf ' x} &  Marker x (beliebiger Buchstabe) benutzen\tabularnewline\hline
+{\bf :s/abc/def/} & abc mit def beim ersten Vorkommen in der momentanen Zeile ersetzen\tabularnewline\hline
+{\bf :\%s/abc/def/} & abc mit def beim ersten Vorkommen auf einer Zeile im ganzen file ersetzen\tabularnewline\hline
+{\bf :\%s/abc/def/g} & abc mit def im ganzen File ersetzen\tabularnewline\hline
+{\bf cw} & 'change word' löscht das ganze folgende Wort und geht in den Insert Mode\tabularnewline\hline
+{\bf :syntax on} & Aktiviert Syntaxhighlighting\tabularnewline\hline
+{\bf :set number} & Zeigt Linenumbers\tabularnewline\hline
+{\bf :set nonumber} & Versteckt Linenumbers\tabularnewline\hline
+{\bf :w} & Speichern\tabularnewline\hline
+{\bf :wq} & Speichern und schliessen\tabularnewline\hline
+{\bf :q!} & Schliessen OHNE speichern\tabularnewline\hline
+{\bf u} & Rückgängig machen\tabularnewline\hline
+{\bf shift u oder :redo} & Redo\tabularnewline\hline
+{\bf \textgreater} & Einrücken (2x für momentane Zeile)\tabularnewline\hline
+{\bf \textless} & Ent-Einrücken (2x für momentane Zeile)\tabularnewline\hline
+%{\bf blah} & blah\tabularnewline\hline
+%{\bf blah} & blah\tabularnewline\hline
 \end{tabular}
 
 
@@ -135,7 +123,7 @@ pos. -\textgreater position\\
 {\bf man command} & Hilfe/Informationen zum Befehl command. / zum durchsuchen, q zum verlassen\tabularnewline\hline
 {\bf scp file.txt benutzer@server:\Pisymbol{psy}{191}\newline/pfad/zum/speichern/} & Kopiert das File file.txt auf den remote-Server in den angegebenen Pfad (geht auch in die andere Richtung)\tabularnewline\hline
 {\bf ctrl-z} & Den momentanen Prozess/Job in den Hintergrund schieben (mit mehreren möglich).\tabularnewline\hline
-{\bf jobs} & Laufende Jobs (zb. jene im Hintergrund) anzeigen.\tabularnewline\hline
+{\bf jobs} & Laufende Jobs (jene im Hintergrund) anzeigen.\tabularnewline\hline
 {\bf fg x} & Holt den Job mit der Nummer x in den Vordergrund (falls nur einer im Hintergrund ist, kann jener auch einfach mit "fg" geholt werden).\tabularnewline\hline
 %{\bf blah} & blah\tabularnewline\hline
 \end{tabular}
